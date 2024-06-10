@@ -1,4 +1,3 @@
-import { type } from "@testing-library/user-event/dist/type";
 import {createStore} from "redux";
 
 
@@ -9,7 +8,7 @@ const initialState = {
     loan: 0,
     loanPurpose: "",
 };
-
+ 
 // eslint-disable-next-line no-unused-vars
 function reducer(state = initialState, action) {
     switch(action.type){
@@ -42,18 +41,46 @@ function reducer(state = initialState, action) {
 
 const store = createStore(reducer);
 
-store.dispatch({type: "account/deposit", payload: 500});
+// store.dispatch({type: "account/deposit", payload: 500});
 
-console.log('Testing Redux')
-console.log(store.getState())
-store.dispatch({type: "account/withdraw", payload:200 })
-console.log(store.getState())
-store.dispatch({type: "account/requestLoan", payload: {
-    amount: 1000, purpose: "buy a car"
-}  })
+// console.log('Testing Redux')
+// console.log(store.getState())
+// store.dispatch({type: "account/withdraw", payload:200 })
+// console.log(store.getState())
+// store.dispatch({type: "account/requestLoan", payload: {
+//     amount: 1000, purpose: "buy a car"
+// }  })
 
+// console.log(store.getState())
+
+// store.dispatch({type:"account/payLoad"});
+// console.log(store.getState());
+ 
+
+// action creater
+
+function deposit(amount) {
+    return { type: "account/deposit", payload: amount}
+
+}  
+
+function withdraw(amount) {
+    return { type: "account/withdraw", payload: amount}
+}
+function requestLoan(amount, purpose) {
+    return {type: "account/requestLoan",
+     payload: { amount, purpose}  }
+}
+function payLoan() {
+    return { type: "account/payLoad"}
+}
+
+store.dispatch(deposit(500));
+store.dispatch(withdraw(200));
 console.log(store.getState())
 
-store.dispatch({type:"account/payLoad"});
+store.dispatch(requestLoan(1000, "Buy a cheap car"));
 console.log(store.getState());
 
+store.dispatch(payLoan());
+console.log(store.getState());
