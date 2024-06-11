@@ -8,6 +8,13 @@ const initialState = {
     loan: 0,
     loanPurpose: "",
 };
+
+
+const initialStateCustomer ={
+    fullName:"",
+    nationalID:"",
+    createdAt:""
+}
  
 // eslint-disable-next-line no-unused-vars
 function reducer(state = initialState, action) {
