@@ -5,10 +5,9 @@ import {createStore} from "redux";
 // pure redux code 
 const initialState = {
     balance: 0,
-    loan: 0,
+    loan: 0,    
     loanPurpose: "",
 };
-
 
 const initialStateCustomer ={
     fullName:"",
