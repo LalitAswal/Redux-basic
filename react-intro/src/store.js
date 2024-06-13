@@ -9,6 +9,11 @@ const initialState = {
     loanPurpose: "",
 };
 
+
+
+
+
+
 const initialStateCustomer ={
     fullName:"",
     nationalID:"",
